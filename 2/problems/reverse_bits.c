@@ -1,11 +1,29 @@
 #include <stdio.h>
 #include <assert.h>
 
-typedef unsigned int Word;
+typedef unsigned int Word; // size = 32 bits
 
 Word reverseBits(Word w) {
     
-    return -1;
+    int result = 0;
+    
+    for (int i = 0; i < 32; i++) {
+        
+        int rightMask = 1u << i;
+        int leftMask = 1u << (31 - i);
+        
+        int isLeftOn = w & leftMask;
+        
+        if (isLeftOn) {
+        
+            result = result | rightMask;
+        
+        }
+        
+    
+    }
+    
+    return result;
 }
 
 // testing

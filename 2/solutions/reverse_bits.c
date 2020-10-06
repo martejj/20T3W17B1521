@@ -5,6 +5,7 @@ typedef unsigned int Word;
 
 Word reverseBits(Word w) {
     Word result = 0;
+    int l = sizeof(w);
     for (int i = 0; i < 32; i++) {
         int rightMask = 1 << i;
         int leftMask = 1 << (32 - 1 - i);
