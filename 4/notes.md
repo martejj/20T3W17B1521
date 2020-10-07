@@ -11,7 +11,7 @@ This week we will cover:
 
 <details>
 
-It is an assembly language but also, youre probably getting sick of this, in effect it is another way of reading binary (same with ASCII, Two's Complement, Floats, etc). In assembly languages the commands we write down are able to be directly converted into binary that a specifically designed CPU can read and execute. Most assembly languages are abstracted and have symbolic references (e.g. labels, register names) and pseudoinstructions.
+It is an assembly language which is a special purpose built programming language that is meant to be read by the CPU. But also, youre probably getting sick of this, in effect it is another way of reading binary (same with ASCII, Two's Complement, Floats, etc). In assembly languages the commands we write down are able to be directly converted into binary that a specifically designed CPU can read and execute. Most assembly languages are abstracted and have symbolic references (e.g. labels, register names) and pseudoinstructions.
 
 <br>
 
