@@ -5,9 +5,14 @@ int main(void) {
     printf("Enter a number: ");
     scanf("%d", &x);
 
-    if (x > 100 && x < 1000) {
+    if (x <= 100) goto small_big;
+    if (x >= 1000) goto small_big;
         printf("medium\n");
-    } else {
+        goto end;
+    small_big:
         printf("small/big\n");
-    }
+    end:
+
+    return 0;
+    
 }
