@@ -43,7 +43,7 @@ When something went wrong.
 
 ---
 
-## Q3 - How do you print the specific reason that caused fopen(3) to return NULL?
+## Q3 - How do you print the specific reason that caused `fopen(3)` to return `NULL`?
 
 <details>
 
@@ -165,7 +165,7 @@ Binary data may naturally contain zero bytes, and thus cannot be treated as a no
 
 ---
 
-## Q9 - How many different values can fgetc(3) return?
+## Q9 - How many different values can `fgetc(3)` return?
 
 <details>
 
@@ -201,7 +201,7 @@ Programmers often think they are only for character I/O, but all of them just re
 
 ---
 
-## What is a bort?
+## What is a `bort`?
 
 <details>
 
@@ -226,11 +226,9 @@ The possible bort values are 0..65535.
 
 </details>
 
-<br>
-
----
-
 </details>
+
+<br>
 
 ---
 
