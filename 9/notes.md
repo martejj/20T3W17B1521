@@ -2,6 +2,11 @@
 
 * How is assignment 2 going?
 * Today we will be covering file metadata
+* Let me know about extensions
+
+<br>
+
+---
 
 ## What is metadata?
 
@@ -13,15 +18,21 @@ Simply put: Data about data. For example the data of a file is its contents. The
 
 </details>
 
-## What are the `stat(2)`, `lstat(2)`, and `fstat(2)` functions?
+<br>
+
+---
+
+## What is `stat(2)`?
 
 <details>
 
 `stat(2)` Takes in a file name and a stat struct and fills the stat struct with information about the file metadata.
 
-`lstat(2)` Does the same as stat except if the file is a symbolic link 
-
 </details>
+
+<br>
+
+---
 
 ## Q3 - What is a stat struct composed of? What are each of these (in greater depth)?
 
@@ -186,6 +197,10 @@ The last time the file status was changed. This could mean changing the file con
 
 </details>
 
+<br>
+
+---
+
 ## Q4 - Consider the following output
 
 ```
@@ -202,7 +217,9 @@ The last time the file status was changed. This could mean changing the file con
 
 <br>
 
-## Who can access the `17s2.work` directory?
+---
+
+### Who can access the `17s2.work` directory?
 
 <details>
 
@@ -212,7 +229,11 @@ The user cs1521, and any member of the cs1521 group can cd into the 17s2.work di
 
 </details>
 
-## What operations can a typical user perform on the `public_html` directory?
+<br>
+
+---
+
+### What operations can a typical user perform on the `public_html` directory?
 
 <details>
 
@@ -222,7 +243,11 @@ Assume that typical user means someone who is not a member of the cs1521 group. 
 
 </details>
 
-## What is the file web?
+<br>
+
+---
+
+### What is the file web?
 
 <details>
 
@@ -231,6 +256,10 @@ The file web is a symbolic link (or symlink). It effectively makes web an altern
 <summary>Answer</summary>
 
 </details>
+
+<br>
+
+---
 
 ## What is the difference between `stat("web", &info)` and `lstat("web", &info)`? (where info is an object of type (struct stat))
 
@@ -243,3 +272,48 @@ The function call lstat("web", &info) places meta-data about the symlink itself 
 <summary>Answer</summary>
 
 </details>
+
+<br>
+
+---
+
+## Q5 - chmod_if_public.c
+
+Write a C program, chmod_if_public_write.c, which is given 1+ command-line arguments which are the pathnames of files or directories
+If the file or directory is publically-writeable, it should change it to be not publically-writeable, leaving other permissions unchanged.
+
+It also should print a line to stdout as in the example below
+
+```c
+    $ dcc chmod_if_public_write.c -o chmod_if_public_write
+    $ ls -ld file_modes.c file_modes file_sizes.c file_sizes
+    -rwxr-xrwx 1 z5555555 z5555555 116744 Nov  2 13:00 file_sizes
+    -rw-r--r-- 1 z5555555 z5555555    604 Nov  2 12:58 file_sizes.c
+    -rwxr-xr-x 1 z5555555 z5555555 222672 Nov  2 13:00 file_modes
+    -rw-r--rw- 1 z5555555 z5555555   2934 Nov  2 12:59 file_modes.c
+    $ ./file_modes file_modes file_modes.c file_sizes file_sizes.c
+    removing public write from file_sizes
+    file_sizes.c is not publically writable
+    file_modes is not publically writable
+    removing public write from file_modes.c
+    $ ls -ld file_modes.c file_modes file_sizes.c file_sizes
+    -rwxr-xr-x 1 z5555555 z5555555 116744 Nov  2 13:00 file_sizes
+    -rw-r--r-- 1 z5555555 z5555555    604 Nov  2 12:58 file_sizes.c
+    -rwxr-xr-x 1 z5555555 z5555555 222672 Nov  2 13:00 file_modes
+    -rw-r--r-- 1 z5555555 z5555555   2934 Nov  2 12:59 file_modes.c
+```
+
+<br>
+
+---
+
+## Q6 - fgrep.c
+
+Write a C program, fgrep.c, which is given 1+ command-line arguments which is a string to search for.
+If there is only 1 command-line argument it should read lines from stdin and print them to stdout iff they contain the string specified as the first command line argumenbt.
+
+If there are 2 or more command line arguments, it should treat arguments after the first as fiilenames and print any lines they contain which contain the string specified as the first command line arguments.
+
+When printing lines your program should prefix them with a line number.
+
+It should print suitable error messages if given an incorrect number of arguments or if there is an error opening a file.
